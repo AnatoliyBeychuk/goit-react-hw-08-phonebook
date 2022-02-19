@@ -21,11 +21,7 @@ import CallIcon from "@mui/icons-material/Call";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function ContactItem({
-  contact: { id, name, number },
-  deleteContact,
-  updateContact,
-}) {
+function ContactItem({ contact: { id, name, number }, deleteContact }) {
   const location = useLocation();
   const currToken = useSelector(getToken);
   return (

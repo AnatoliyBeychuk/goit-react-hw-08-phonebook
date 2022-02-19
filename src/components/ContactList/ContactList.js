@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 import {
   useFetchContactsQuery,
   useDeleteContactMutation,
-  useUpdateContactMutation,
 } from "../../redux/Contacts/contacts-slice";
 import { getToken } from "../../redux/Auth/auth-selectors";
 import { Container, ListContacts } from "./ContactList.styled";
@@ -20,7 +19,6 @@ function ContactList() {
   const currToken = useSelector(getToken);
   const { data, error, isFetching } = useFetchContactsQuery(currToken);
   const [deleteContact] = useDeleteContactMutation();
-  const [updateContact] = useUpdateContactMutation();
 
   const getFilteredArray = createSelector(
     [getContacts, getFilter],
@@ -64,7 +62,6 @@ function ContactList() {
                 key={contact.id}
                 contact={contact}
                 deleteContact={deleteContact}
-                updateContact={updateContact}
               />
             );
           })}
